@@ -63,7 +63,7 @@ insert into payment (booking_id, payment_method, payment_amount, payment_date) v
 (4, 'Credit Card', 480.0, '2025-03-04'),
 (5, 'Cash', 800.0, '2025-03-05');
 
---Cập nhật dữ liệu (6 điểm) Viết câu lệnh UPDATE để cập nhật lại total_amount trong bảng Booking theo công thức: total_amount = room_price * (số ngày lưu trú).
+--3.Cập nhật dữ liệu (6 điểm) Viết câu lệnh UPDATE để cập nhật lại total_amount trong bảng Booking theo công thức: total_amount = room_price * (số ngày lưu trú).
 --• Điều kiện:
 --◦ Chỉ cập nhật cho các phòng có trạng thái ( room_status ) là "Booked".
 --◦ Chỉ cập nhật khi ngày nhận phòng ( check_in_date ) đã qua (ví dụ: check_in_date
@@ -75,7 +75,7 @@ WHERE booking.room_id = room.room_id
   AND room.room_status = 'Booked'
   AND booking.check_in_date < CURRENT_DATE;
 
---Xóa dữ liệu (6 điểm) Viết câu lệnh DELETE để xóa các thanh toán trong bảng Payment
+--4.Xóa dữ liệu (6 điểm) Viết câu lệnh DELETE để xóa các thanh toán trong bảng Payment
 --nếu:
 --◦ Phương thức thanh toán ( payment_method ) là "Cash".
 --◦ Và tổng tiền thanh toán ( payment_amount ) nhỏ hơn 500.
@@ -83,19 +83,19 @@ DELETE FROM payment
 WHERE payment_method = 'Cash'
   AND payment_amount < 500;
 
--- Lấy thông tin khách hàng gồm mã khách hàng, họ tên, email, số điện thoại và địa
+--5.Lấy thông tin khách hàng gồm mã khách hàng, họ tên, email, số điện thoại và địa
 --chỉ được sắp xếp theo họ tên khách hàng tăng dần.
 SELECT customer_id, customer_full_name, customer_email, customer_phone, customer_address
 FROM customer
 ORDER BY customer_full_name ASC;
 
---ấy thông tin các phòng khách sạn gồm mã phòng, loại phòng, giá phòng và diện
+--6.lấy thông tin các phòng khách sạn gồm mã phòng, loại phòng, giá phòng và diện
 --tích phòng, sắp xếp theo giá phòng giảm dần.
 select room_id, room_type, room_price, room_area
 from room
 order by room_area desc;
 
---Lấy thông tin khách hàng và phòng khách sạn đã đặt, gồm mã khách hàng, họ tên
+--7.Lấy thông tin khách hàng và phòng khách sạn đã đặt, gồm mã khách hàng, họ tên
 --khách hàng, mã phòng, ngày nhận phòng và ngày trả phòng
 SELECT c.customer_id, c.customer_full_name, p.payment_method, p.payment_amount
 FROM customer c 
@@ -103,12 +103,8 @@ JOIN booking b ON c.customer_id = b.customer_id
 JOIN payment p ON b.booking_id = p.booking_id
 ORDER BY p.payment_amount DESC;     
 
---Lấy thông tin khách hàng và phòng khách sạn đã đặt, gồm mã khách hàng, họ tên khách hàng, mã phòng, ngày nhận phòng và ngày trả phòng.--
-SELECT c.customer_full_name, b.room_id, b.check_in_date, b.check_out_date
-FROM customer c 
-JOIN booking b ON c.customer_id = b.customer_id;
 
---Lấy danh sách khách hàng và tổng tiền đã thanh toán khi đặt phòng, gồm mã khách hàng, họ tên khách hàng,
+--8.Lấy danh sách khách hàng và tổng tiền đã thanh toán khi đặt phòng, gồm mã khách hàng, họ tên khách hàng,
 -- phương thức thanh toán và số tiền thanh toán, sắp xếp theo số tiền thanh toán giảm dần.--
 SELECT c.customer_id, c.customer_full_name, p.payment_method, p.payment_amount
 FROM customer c
@@ -116,13 +112,13 @@ JOIN booking b ON c.customer_id = b.customer_id
 JOIN payment p ON b.booking_id = p.booking_id
 ORDER BY p.payment_amount DESC;
 
---Lấy thông tin khách hàng từ vị trí thứ 2 đến thứ 4 trong bảng Customer được sắp xếp theo tên khách hàng.
+--9.Lấy thông tin khách hàng từ vị trí thứ 2 đến thứ 4 trong bảng Customer được sắp xếp theo tên khách hàng.
 SELECT customer_id, customer_full_name, customer_email, customer_phone, customer_address
 FROM customer
 ORDER BY customer_full_name ASC
 OFFSET 1 LIMIT 3;
 
---. (5 điểm) Lấy danh sách khách hàng đã đặt ít nhất 2 phòng và có tổng số tiền thanh toá trên 1000,
+--10. (5 điểm) Lấy danh sách khách hàng đã đặt ít nhất 2 phòng và có tổng số tiền thanh toá trên 1000,
 -- gồm mã khách hàng, họ tên khách hàng và số lượng phòng đã đặt.--  
 SELECT c.customer_id, c.customer_full_name, COUNT(b.room_id) AS so_luong_phong
 FROM customer c 
@@ -133,7 +129,7 @@ HAVING COUNT(b.room_id) >= 2
    AND SUM(p.payment_amount) > 1000
 ORDER BY so_luong_phong DESC;
 
--- Lấy danh sách các phòng có tổng số tiền thanh toán dưới 1000 và có ít nhất 3 khách hàng đặt, 
+--11. Lấy danh sách các phòng có tổng số tiền thanh toán dưới 1000 và có ít nhất 3 khách hàng đặt, 
 --gồm mã phòng, loại phòng, giá phòng và tổng số tiền thanh toán 
 SELECT r.room_id, r.room_type, r.room_price, COUNT(DISTINCT b.customer_id) AS so_lan_dat
 FROM room r
@@ -144,7 +140,7 @@ HAVING SUM(p.payment_amount) < 1000
    AND COUNT(DISTINCT b.customer_id) >= 3
 ORDER BY so_lan_dat DESC;
 
---Lấy danh sách các khách hàng có tổng số tiền thanh toán lớn hơn 1000,
+--12. Lấy danh sách các khách hàng có tổng số tiền thanh toán lớn hơn 1000,
 -- gồm mã khách hàng, họ tên khách hàng, mã phòng, tổng số tiền thanh toán.
 SELECT c.customer_id, c.customer_full_name, b.room_id, SUM(p.payment_amount) AS tong_tien
 FROM customer c 
@@ -154,7 +150,7 @@ GROUP BY c.customer_id, c.customer_full_name, b.room_id
 HAVING SUM(p.payment_amount) > 1000
 ORDER BY tong_tien DESC;
 
---) Lấy danh sách các khách hàng Mmã KH, Họ tên, Email, SĐT) có họ tên chứa chữ "Minh" hoặc địa chỉ 
+--13. Lấy danh sách các khách hàng Mmã KH, Họ tên, Email, SĐT) có họ tên chứa chữ "Minh" hoặc địa chỉ 
 --(address) ở "Hanoi". Sắp xếp kết quả theo họ tên tăng dần.
 SELECT customer_id, customer_full_name, customer_email, customer_phone
 FROM customer
@@ -162,7 +158,7 @@ WHERE customer_full_name ILIKE '%Minh%'
    OR customer_address ILIKE '%Hanoi%'
 ORDER BY customer_full_name ASC;    
 
---Lấy danh sách tất cả các phòng (Mã phòng, Loại phòng, Giá), sắp xếp theo giá phòng giảm dần.
+--14. Lấy danh sách tất cả các phòng (Mã phòng, Loại phòng, Giá), sắp xếp theo giá phòng giảm dần.
 -- Hiển thị 5 phòng tiếp theo sau 5 phòng đầu tiên (tức là lấy kết quả của trang thứ 2, biết mỗi trang có 5 phòng).
 select c.customer_id , r.room_type,  r.room_price 
 from customer c
@@ -171,7 +167,7 @@ join room r on b.room_id = r.room_id
 order by r.room_price desc
 offset 5 limit 5;   
 
---Hãy tạo một view để lấy thông tin các phòng và khách hàng đã đặt, với điều kiện ngày nhận phòng
+--15. Hãy tạo một view để lấy thông tin các phòng và khách hàng đã đặt, với điều kiện ngày nhận phòng
 -- nhỏ hơn ngày 2025-03-10. Cần hiển thị các thông tin sau: Mã phòng, Loại phòng, Mã khách hàng, họ tên khách hàng
 CREATE VIEW view_room_booking AS
 SELECT r.room_id, r.room_type, c.customer_id, c.customer_full_name
@@ -180,7 +176,7 @@ JOIN booking b ON r.room_id = b.room_id
 JOIN customer c ON b.customer_id = c.customer_id
 WHERE b.check_in_date < '2025-03-10';
 
---(5 điểm) Hãy tạo một view để lấy thông tin khách hàng và phòng đã đặt, với điều kiện diệntích phòng
+--16. (5 điểm) Hãy tạo một view để lấy thông tin khách hàng và phòng đã đặt, với điều kiện diệntích phòng
 -- lớn hơn 30 m². Cần hiển thị các thông tin sau: Mã khách hàng, Họ tên khách hàng, Mã phòng, Diện tích phòng
 CREATE VIEW view_customer_room AS
 SELECT c.customer_id, c.customer_full_name, r.room_id, r.room_area  
@@ -189,7 +185,7 @@ JOIN booking b ON c.customer_id = b.customer_id
 JOIN room r ON b.room_id = r.room_id
 WHERE r.room_area > 30; 
 
---(5 điểm) Hãy tạo một trigger check_insert_booking để kiểm tra dữ liệu mối khi chèn vào bảng Booking. 
+--17.(5 điểm) Hãy tạo một trigger check_insert_booking để kiểm tra dữ liệu mối khi chèn vào bảng Booking. 
 --Kiểm tra nếu ngày đặt phòng mà sau ngày trả phòng thì thông báo lỗi với nội dung “Ngày đặt phòng không thể 
 --sau ngày trả phòng được !” và hủy thao tác chèn dữ liệu vào bảng
 CREATE OR REPLACE FUNCTION check_booking_dates()
@@ -207,7 +203,7 @@ CREATE TRIGGER check_insert_booking
     FOR EACH ROW
     EXECUTE FUNCTION check_booking_dates();
 
---(5 điểm) Hãy tạo một trigger có tên là update_room_status_on_booking để tự động cập nhật trạng thái
+--18. (5 điểm) Hãy tạo một trigger có tên là update_room_status_on_booking để tự động cập nhật trạng thái
 -- phòng thành "Booked" khi một phòng được đặt (khi có bản ghi được INSERT vào bảng Booking).
 CREATE OR REPLACE FUNCTION update_room_status()
 RETURNS trigger AS $$
@@ -238,7 +234,7 @@ BEGIN
 END;
 $$;
 
---(5 điểm) Hãy tạo một Stored Procedure có tên là add_payment để thực hiện việc thêmmột thanh toán mới cho 
+--20(5 điểm) Hãy tạo một Stored Procedure có tên là add_payment để thực hiện việc thêmmột thanh toán mới cho 
 --một lần đặt phòng.Procedure này nhận các tham số đầu vào:• p_booking_id: Mã đặt phòng (booking_id).
 --• p_payment_method: Phương thức thanh toán (payment_method).• p_payment_amount: Số tiền thanh toán (payment_amount).• p_payment_date: Ngày thanh toán (payment_date)
 CREATE OR REPLACE PROCEDURE add_payment(
