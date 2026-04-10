@@ -1,0 +1,15 @@
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\bin\Debug\net10.0\Bai2GhiFile.exe
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\bin\Debug\net10.0\Bai2GhiFile.deps.json
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\bin\Debug\net10.0\Bai2GhiFile.runtimeconfig.json
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\bin\Debug\net10.0\Bai2GhiFile.dll
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\bin\Debug\net10.0\Bai2GhiFile.pdb
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.AssemblyInfo.cs
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.sourcelink.json
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.dll
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\refint\Bai2GhiFile.dll
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.pdb
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\Bai2GhiFile.genruntimeconfig.cache
+C:\Users\Admin\Documents\c# code\Bai2GhiFile\obj\Debug\net10.0\ref\Bai2GhiFile.dll

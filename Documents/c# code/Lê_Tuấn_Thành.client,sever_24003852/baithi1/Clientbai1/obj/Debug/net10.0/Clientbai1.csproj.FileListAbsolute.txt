@@ -1,0 +1,15 @@
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\bin\Debug\net10.0\Clientbai1.exe
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\bin\Debug\net10.0\Clientbai1.deps.json
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\bin\Debug\net10.0\Clientbai1.runtimeconfig.json
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\bin\Debug\net10.0\Clientbai1.dll
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\bin\Debug\net10.0\Clientbai1.pdb
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.AssemblyInfoInputs.cache
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.AssemblyInfo.cs
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.sourcelink.json
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.dll
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\refint\Clientbai1.dll
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.pdb
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\Clientbai1.genruntimeconfig.cache
+C:\Users\Admin\Documents\c# code\baithi1\Clientbai1\obj\Debug\net10.0\ref\Clientbai1.dll
